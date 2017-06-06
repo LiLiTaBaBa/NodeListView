@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dip"
+    android:background="@android:color/white"
+    tools:context="com.iseeyou.bianzw.nodelistview.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.iseeyou.bianzw.nodelistview.view.NodeListView
+            android:id="@+id/nodeListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.iseeyou.bianzw.nodelistview.view.NodeListView>
+    </ScrollView>
+</LinearLayout>
