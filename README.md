@@ -1,21 +1,20 @@
 # NodeListView
 接点ListView
-
 废话不多说先来张图片
+
+
 ![image](https://github.com/LiLiTaBaBa/NodeListView/raw/master/kuaizhao.jpg)
 
 
 
 具体的使用
 
-/**
-  * 初始化控件
-  */
+    //初始化控件
     private void initViews() {
-        //初始化控件
-        mNodeListView = (NodeListView) findViewById(R.id.nodeListView);
-        mList = new ArrayList();
-        //添加接点数据
+    //初始化控件
+    mNodeListView = (NodeListView) findViewById(R.id.nodeListView);
+    List mList = new ArrayList();
+    //添加接点数据
         mList.add(new NodeBean("南京市江宁区河定桥双龙大道119号", "金轮新都汇"));
         mList.add(new NodeBean("南京市江宁区胜太路秦淮路11号", "大数据银坤"));
         mList.add(new NodeBean("南京市江宁区河定桥金王府18号", "大数据银坤"));
