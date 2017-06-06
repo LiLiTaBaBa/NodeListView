@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -121,6 +122,10 @@ public class NodeListView extends ListView {
         return getChildAt(i).findViewById(R.id.tvTitle).getHeight();
     }
 
+    private final int getTvTitleTop(int i) {
+        return getChildAt(i).findViewById(R.id.tvTitle).getTop();
+    }
+
     /**
      * 获取Address的高度
      *
@@ -152,24 +157,25 @@ public class NodeListView extends ListView {
                 //修改画笔的颜色
                 mPaint.setColor(Color.RED);
                 //画内圆
-                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + dip(2)
+                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + getTvTitleTop(i)
                         , 15, mPaint);
                 //修改画笔的透明度
                 mPaint.setAlpha(88);
                 //画外圆
-                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + dip(2)
+                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + getTvTitleTop(i)
                         , 25, mPaint);
             } else if (i == getAdapter().getCount() - 1) {
                 //修改画笔颜色
                 mPaint.setColor(Color.parseColor("#24BFA0"));
                 //画内圆
-                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + dip(2)
+                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + getTvTitleTop(i)
                         , 15, mPaint);
                 //修改画笔的透明度
                 mPaint.setAlpha(88);
                 //画外圆
-                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + dip(2)
+                canvas.drawCircle(dip(10), getHeight() / getAdapter().getCount() * i + getTvTitleHeight(i) / 2 + getTvTitleTop(i)
                         , 25, mPaint);
+                Log.e("Jun============>", getTvTitleTop(i) + "");
             } else {
                 //修改画笔的透明度
                 mPaint.setAlpha(255);
@@ -244,6 +250,7 @@ public class NodeListView extends ListView {
                 holder.tvAddress = (TextView) convertView.findViewById(R.id.tvAddress);
                 convertView.setTag(holder);
             }
+
             //设置参数
             convertView.setLayoutParams(lp);
             holder = (ViewHolder) convertView.getTag();
@@ -260,6 +267,7 @@ public class NodeListView extends ListView {
                 LayoutParams lpp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dip(92));
                 convertView.setLayoutParams(lpp);
             }
+
             return convertView;
         }
 
